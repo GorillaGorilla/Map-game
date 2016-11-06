@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MapApp</string>
+    <string name="title_activity_game_screen">Map</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="title_activity_login">Join</string>
+    <string name="message_welcome">Welcome to Socket.IO Chat –</string>
+    <string name="prompt_username">What\'s your nickname?</string>
+    <string name="action_sign_in">Join</string>
+    <string name="action_sign_in_short">Join</string>
+    <string name="action_leave">Leave</string>
+    <string name="action_send">Send</string>
+    <string name="prompt_message">Message</string>
+</resources>
