@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,9 +34,10 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("%%% LoginActivity", "nothing");
         setContentView(R.layout.activity_login);
 
-        SocketApplication app = (SocketApplication) getApplication();
+        SocketApplication app = (SocketApplication) getApplication() ;
         mSocket = app.getSocket();
 
         // Set up the login form.
@@ -59,7 +61,7 @@ public class LoginActivity extends Activity {
             }
         });
 
-        mSocket.on("login", onLogin);
+        mSocket.on("onconnected", onLogin);
     }
 
     @Override
@@ -75,6 +77,7 @@ public class LoginActivity extends Activity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
+
         // Reset errors.
         mUsernameView.setError(null);
 
@@ -99,18 +102,27 @@ public class LoginActivity extends Activity {
     private Emitter.Listener onLogin = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
+            Log.d("%%% onLogin ", "still nothing");
             JSONObject data = (JSONObject) args[0];
 
             int numUsers;
+            String gameId;
+            String userId;
+
             try {
                 numUsers = data.getInt("numUsers");
+                gameId = data.getString("gameId");
+                userId = data.getString("userId");
             } catch (JSONException e) {
+                Log.e("%%% JSONEXCeption", "hmm");
                 return;
             }
 
             Intent intent = new Intent();
             intent.putExtra("username", mUsername);
             intent.putExtra("numUsers", numUsers);
+            intent.putExtra("gameId", gameId);
+            intent.putExtra("userId", gameId);
             setResult(RESULT_OK, intent);
             finish();
         }

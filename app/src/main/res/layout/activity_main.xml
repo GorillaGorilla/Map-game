@@ -6,17 +6,16 @@
              tools:context=".MainActivity"
              tools:ignore="MergeRootFrame">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:weightSum="100">
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:orientation="vertical" android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" android:weightSum="100">-->
         <fragment
-            class="com.example.frederickmacgregor.mapapp.GameScreen"
+            class="com.example.frederickmacgregor.mapapp.MainFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="50"/>
 
-
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
 
 
