@@ -113,6 +113,7 @@ public class LoginActivity extends Activity {
                 numUsers = data.getInt("numUsers");
                 gameId = data.getString("gameId");
                 userId = data.getString("userId");
+                Log.d("%%%", userId);
             } catch (JSONException e) {
                 Log.e("%%% JSONEXCeption", "hmm");
                 return;
@@ -122,7 +123,7 @@ public class LoginActivity extends Activity {
             intent.putExtra("username", mUsername);
             intent.putExtra("numUsers", numUsers);
             intent.putExtra("gameId", gameId);
-            intent.putExtra("userId", gameId);
+            intent.putExtra("userId", userId);
             setResult(RESULT_OK, intent);
             finish();
         }
